@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 	var direccion = Player.global_position - global_position
 	if direccion.x > 0:
 		EnemigoMirando = 1
-		$EnemySprite.flip_h = false
+		$EnemySprite.flip_h = false # pa q se giren
 	if direccion.x < 0:
 		EnemigoMirando = -1
 		$EnemySprite.flip_h = true
@@ -32,6 +32,7 @@ func _physics_process(_delta: float) -> void:
 	$ProgressBar.value = vida
 	if $ProgressBar.value == 0: 
 		queue_free()
+
 
 func set_vector(vector):
 	movimiento = vector.normalized() * velocidad
