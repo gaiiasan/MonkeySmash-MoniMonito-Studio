@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://pfj2umrq2yxg"]
+
+[ext_resource type="Script" uid="uid://ke21mw26owx6" path="res://Player.gd" id="1_kkt6c"]
+[ext_resource type="Texture2D" uid="uid://cvw6ly05f1hpl" path="res://assets/thug_01.png" id="2_j7xnp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4kro"]
+radius = 26.08639
+
+[sub_resource type="Animation" id="Animation_il450"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_k0b83"]
+resource_name = "jorge_R_walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.40000004, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_2no80"]
+resource_name = "jorge_golpe"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 8]
+}
+
+[sub_resource type="Animation" id="Animation_db2nf"]
+resource_name = "jorge_idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2526),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k0b83"]
+_data = {
+&"RESET": SubResource("Animation_il450"),
+&"jorge_R_walk": SubResource("Animation_k0b83"),
+&"jorge_golpe": SubResource("Animation_2no80"),
+&"jorge_idle": SubResource("Animation_db2nf")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=1637906704]
+visibility_layer = 514
+scale = Vector2(3, 3)
+collision_mask = 2
+script = ExtResource("1_kkt6c")
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1519821852]
+texture = ExtResource("2_j7xnp")
+hframes = 4
+vframes = 6
+frame = 9
+
+[node name="PlayerHurtbox" type="CollisionShape2D" parent="." unique_id=1579249835]
+position = Vector2(0.5000002, -0.49999985)
+scale = Vector2(0.33333343, 0.33333343)
+shape = SubResource("CircleShape2D_k4kro")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=384582993]
+offset_left = -17.000002
+offset_top = -15.0
+offset_right = 100.0
+offset_bottom = 12.0
+scale = Vector2(0.3099511, 0.1475857)
+step = 0.0
+value = 100.0
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1384466406]
+libraries/ = SubResource("AnimationLibrary_k0b83")

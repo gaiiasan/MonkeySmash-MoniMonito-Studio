@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dyqvsagajxpw4"]
+
+[ext_resource type="Script" uid="uid://dx51034rmxhq" path="res://escenas/PiñaEnemigo.gd" id="1_41tqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8n7i7"]
+size = Vector2(34, 42)
+
+[node name="Area2D" type="Area2D" unique_id=1738451656]
+collision_layer = 16
+script = ExtResource("1_41tqy")
+
+[node name="HitboxPiñaEnemigo" type="CollisionShape2D" parent="." unique_id=1587009729]
+light_mask = 16
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8n7i7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

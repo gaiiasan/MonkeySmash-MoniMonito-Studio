@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c8av0r567r867"]
+
+[ext_resource type="Script" uid="uid://bij5urbocahx8" path="res://PiñaLigera.gd" id="1_f3vxg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8n7i7"]
+size = Vector2(34, 43)
+
+[node name="Area2D" type="Area2D" unique_id=395502602]
+collision_mask = 2
+script = ExtResource("1_f3vxg")
+
+[node name="HitboxPiñaLigera" type="CollisionShape2D" parent="." unique_id=114310282]
+light_mask = 4
+visibility_layer = 2
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8n7i7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

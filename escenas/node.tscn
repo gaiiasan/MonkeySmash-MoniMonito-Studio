@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://biknb5p56rmaq"]
+
+[ext_resource type="Script" uid="uid://dclsqg4dx1lpi" path="res://node_2d.gd" id="1_il450"]
+[ext_resource type="PackedScene" uid="uid://pfj2umrq2yxg" path="res://escenas/player.tscn" id="2_0ns0t"]
+[ext_resource type="Script" uid="uid://cmtsfo3ny7toi" path="res://camera_2d.gd" id="4_db2nf"]
+
+[node name="Node" type="Node" unique_id=115783881]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=36285199]
+script = ExtResource("1_il450")
+
+[node name="Player" parent="Node2D" unique_id=1637906704 instance=ExtResource("2_0ns0t")]
+position = Vector2(363, 328)
+
+[node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=1559950509]
+position = Vector2(574, 322)
+script = ExtResource("4_db2nf")
