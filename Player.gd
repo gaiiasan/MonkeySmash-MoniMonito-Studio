@@ -77,3 +77,6 @@ func _on_animation_finished(anim_name: String) -> void:
 		PuedeMoverse = true 
 		PuedeAtacar = true
 		$AnimationPlayer.play("jorge_idle")
+		
+		
+		#esto es un cambio
