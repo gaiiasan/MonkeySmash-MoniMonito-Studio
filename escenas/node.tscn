@@ -3,15 +3,180 @@
 [ext_resource type="Script" uid="uid://dclsqg4dx1lpi" path="res://node_2d.gd" id="1_il450"]
 [ext_resource type="PackedScene" uid="uid://pfj2umrq2yxg" path="res://escenas/player.tscn" id="2_0ns0t"]
 [ext_resource type="Script" uid="uid://cmtsfo3ny7toi" path="res://camera_2d.gd" id="4_db2nf"]
+[ext_resource type="Texture2D" uid="uid://djewfp4vpr72g" path="res://assets/icon.svg" id="4_il450"]
+[ext_resource type="PackedScene" uid="uid://dwcbu21dt2lu7" path="res://escenas/BananaPickUp.tscn" id="5_2no80"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8n7i7"]
+size = Vector2(96.07568, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cgav"]
+size = Vector2(38, 725)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6sls"]
+size = Vector2(121, 241)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twqbh"]
+size = Vector2(115, 241)
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_8n7i7"]
+length = 634.0
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_1cgav"]
+length = 684.0
 
 [node name="Node" type="Node" unique_id=115783881]
+
+[node name="placeholder terreno" type="Node2D" parent="." unique_id=489590634]
+
+[node name="ParedSuperior" type="StaticBody2D" parent="placeholder terreno" unique_id=1503200972]
+position = Vector2(0, -19)
+collision_layer = 128
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="placeholder terreno/ParedSuperior" unique_id=474791345]
+position = Vector2(1441.5, -10)
+scale = Vector2(23.445313, 1)
+texture = ExtResource("4_il450")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placeholder terreno/ParedSuperior" unique_id=86456413]
+position = Vector2(1457.4492, 33.99999)
+scale = Vector2(31.070309, 0.9999999)
+shape = SubResource("RectangleShape2D_8n7i7")
+
+[node name="ParedInferior" type="StaticBody2D" parent="placeholder terreno" unique_id=540385958]
+position = Vector2(0, 699)
+collision_layer = 128
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="placeholder terreno/ParedInferior" unique_id=256778352]
+position = Vector2(1443, -10)
+scale = Vector2(23.46875, 1)
+texture = ExtResource("4_il450")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placeholder terreno/ParedInferior" unique_id=1518457935]
+position = Vector2(1461, -59.00001)
+scale = Vector2(31.070309, 0.9999999)
+shape = SubResource("RectangleShape2D_8n7i7")
+
+[node name="ParedIzquierda" type="StaticBody2D" parent="placeholder terreno" unique_id=744535121]
+position = Vector2(0, -19)
+collision_layer = 128
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="placeholder terreno/ParedIzquierda" unique_id=187973270]
+position = Vector2(6.000122, 335.49997)
+scale = Vector2(1.0156261, 6.398437)
+texture = ExtResource("4_il450")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placeholder terreno/ParedIzquierda" unique_id=1611561435]
+position = Vector2(43, 376)
+shape = SubResource("RectangleShape2D_1cgav")
+
+[node name="ParedDerecha" type="StaticBody2D" parent="placeholder terreno" unique_id=137900098]
+position = Vector2(2986, -22)
+collision_layer = 128
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="placeholder terreno/ParedDerecha" unique_id=1757397200]
+position = Vector2(6.000122, 335.49997)
+scale = Vector2(1.0156261, 6.398437)
+texture = ExtResource("4_il450")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placeholder terreno/ParedDerecha" unique_id=896538403]
+position = Vector2(-37, 372)
+shape = SubResource("RectangleShape2D_1cgav")
+
+[node name="ParedPuertaBossArriba" type="StaticBody2D" parent="placeholder terreno" unique_id=62051980]
+position = Vector2(1791, -25)
+collision_layer = 128
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="placeholder terreno/ParedPuertaBossArriba" unique_id=967805188]
+position = Vector2(2.5000274, 80.5)
+scale = Vector2(0.9609371, 2.4140625)
+texture = ExtResource("4_il450")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placeholder terreno/ParedPuertaBossArriba" unique_id=1773735870]
+position = Vector2(4.5, 110.5)
+shape = SubResource("RectangleShape2D_k6sls")
+
+[node name="ParedPuertaBossAbajo" type="StaticBody2D" parent="placeholder terreno" unique_id=1333899631]
+position = Vector2(1795, 505)
+collision_layer = 128
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="placeholder terreno/ParedPuertaBossAbajo" unique_id=1843088403]
+position = Vector2(2.5000274, 80.5)
+scale = Vector2(0.9609371, 2.4140625)
+texture = ExtResource("4_il450")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placeholder terreno/ParedPuertaBossAbajo" unique_id=1316385247]
+position = Vector2(5, 52)
+shape = SubResource("RectangleShape2D_k6sls")
+
+[node name="PuertaBoss" type="StaticBody2D" parent="placeholder terreno" unique_id=1080781707]
+position = Vector2(1795, 262)
+collision_layer = 128
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="placeholder terreno/PuertaBoss" unique_id=150010784]
+position = Vector2(2.5000274, 50.000008)
+scale = Vector2(0.9609371, 1.9375001)
+texture = ExtResource("4_il450")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="placeholder terreno/PuertaBoss" unique_id=1111952443]
+position = Vector2(2.5, 60.5)
+shape = SubResource("RectangleShape2D_twqbh")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=36285199]
 script = ExtResource("1_il450")
 
 [node name="Player" parent="Node2D" unique_id=1637906704 instance=ExtResource("2_0ns0t")]
-position = Vector2(363, 328)
+position = Vector2(1028, 304)
 
 [node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=1559950509]
 position = Vector2(574, 322)
 script = ExtResource("4_db2nf")
+
+[node name="BananaPickUp" parent="Node2D" unique_id=1499009987 instance=ExtResource("5_2no80")]
+position = Vector2(432, 107)
+
+[node name="BananaPickUp2" parent="Node2D" unique_id=1656836025 instance=ExtResource("5_2no80")]
+position = Vector2(1183, 315)
+
+[node name="placeholder bananas contador" type="CanvasLayer" parent="Node2D" unique_id=476832612]
+
+[node name="Label" type="Label" parent="Node2D/placeholder bananas contador" unique_id=322881340]
+offset_left = 21.0
+offset_top = 18.0
+offset_right = 110.0
+offset_bottom = 41.0
+text = "Bananas : 0"
+
+[node name="Pelea1" type="Area2D" parent="Node2D" unique_id=2147135282]
+position = Vector2(1151, -1)
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Pelea1" unique_id=956962092]
+shape = SubResource("SeparationRayShape2D_8n7i7")
+
+[node name="PeleaBoss" type="Area2D" parent="Node2D" unique_id=1730294876]
+position = Vector2(1931, -23)
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/PeleaBoss" unique_id=781104756]
+shape = SubResource("SeparationRayShape2D_1cgav")
+
+[node name="placeholder controles" type="Label" parent="." unique_id=1098701240]
+offset_left = 20.0
+offset_top = 34.0
+offset_right = 457.0
+offset_bottom = 142.0
+text = "Movimiento - WASD            Ataque ligero - J
+          Ataque fuerte - K                  Ataque a distancia - L
+                                                       (usa bananas)"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[connection signal="body_entered" from="Node2D/Pelea1" to="Node2D" method="_on_pelea_1_body_entered"]
+[connection signal="body_entered" from="Node2D/PeleaBoss" to="Node2D" method="_on_pelea_boss_body_entered"]

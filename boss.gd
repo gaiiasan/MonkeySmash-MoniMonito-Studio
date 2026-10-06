@@ -29,9 +29,10 @@ func _process(_delta: float) -> void:
 		EnemigoMirando = -1
 		$BossSprite.flip_h = true
 
-	#$ProgressBar.value = vida
-	#if $ProgressBar.value == 0: 
-		#queue_free()
+	$ProgressBar.value = vida
+	if $ProgressBar.value == 0: 
+		get_parent().get_parent().EnemigoMurio()
+		queue_free()
 
 
 func set_vector(vector):

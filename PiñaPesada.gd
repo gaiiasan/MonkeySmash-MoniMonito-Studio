@@ -1,6 +1,6 @@
 extends Area2D
-
-@export var TiempoVida = 0.4
+@onready var PlayerMirando = get_parent().get_node("Player").PlayerMirandoIzquierda 
+@export var TiempoVida = 0.1
 var daño = 60
 
 func _ready() -> void:
@@ -10,3 +10,4 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	body.vida -= daño
+	body.position.x += 40 * PlayerMirando

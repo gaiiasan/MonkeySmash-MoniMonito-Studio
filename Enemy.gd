@@ -4,7 +4,7 @@ extends CharacterBody2D
 var PiñaEnemigo= preload("uid://dyqvsagajxpw4")
 var vida = 90
 var movimiento = Vector2()
-var velocidad = 3
+var velocidad = 2.5
 var EnMovimiento = false
 var EnemigoMirando = 1
 
@@ -31,6 +31,7 @@ func _physics_process(_delta: float) -> void:
 
 	$ProgressBar.value = vida
 	if $ProgressBar.value == 0: 
+		get_parent().EnemigoMurio()
 		queue_free()
 
 

@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://5co6v4so8iyb" path="res://escenas/PiñaBoss.gd" id="1_sn4xe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8n7i7"]
-size = Vector2(260, 59)
+size = Vector2(246, 58.5)
 
 [node name="PiñaBoss" type="Area2D" unique_id=1522589433]
 script = ExtResource("1_sn4xe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1508372248]
-position = Vector2(3, 0)
+position = Vector2(8, 1)
 shape = SubResource("RectangleShape2D_8n7i7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

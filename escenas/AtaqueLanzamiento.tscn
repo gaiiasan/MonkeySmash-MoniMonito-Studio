@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://crs8beah8sx5i"]
+
+[ext_resource type="Script" uid="uid://buhwi34bl0koa" path="res://escenas/AtaqueLanzamiento.gd" id="1_fwo3v"]
+[ext_resource type="Texture2D" uid="uid://cpo57jbcdvdc8" path="res://assets/BananaPickUp.png" id="2_luh8o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8n7i7"]
+radius = 15.033297
+
+[node name="Area2D" type="Area2D" unique_id=1289474022]
+collision_mask = 2
+script = ExtResource("1_fwo3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927309184]
+light_mask = 4
+visibility_layer = 2
+shape = SubResource("CircleShape2D_8n7i7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=957190026]
+position = Vector2(5.9604645e-08, 5.9604645e-08)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_luh8o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

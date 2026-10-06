@@ -3,16 +3,20 @@ extends CharacterBody2D
 @export var VelocidadJugador: float = 300.0
 var PiñaLigera = preload("uid://c8av0r567r867")
 var PiñaPesada = preload("uid://dtu0l5g2q51sl")
+var AtaqueLanzamiento = preload("uid://crs8beah8sx5i")
 var PlayerMirandoIzquierda = 1
 var vida = 100
 var PuedeMoverse = true
 var PuedeAtacar = true
+var Bananas = 10
 
 func _ready() -> void:
 	$AnimationPlayer.animation_finished.connect(_on_animation_finished)
 	$AnimationPlayer.play("jorge_idle")
 
 func _physics_process(_delta):
+	#vida = 100     #para probar, lo hace inmortal, borrar despues
+	$"../placeholder bananas contador/Label".text = "Bananas: " + str(Bananas) #contador de bananas
 	if PuedeMoverse:
 		var direccion = Input.get_vector("_MovimientoIzquierda", "_MovimientoDerecha", "_MovimientoArriba", "_MovimientoAbajo")
 		velocity = direccion * VelocidadJugador
@@ -40,6 +44,10 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("_AtaquePesado"):
 		$AnimationPlayer.play("jorge_golpe")
 		AtaquePesado()
+	if Input.is_action_just_pressed("_AtaqueDistancia"):
+		AtaqueDistancia()
+	if Input.is_action_just_pressed("_Pruebas"): #tecla M
+		print(position)
 
 func AtaqueLigero():
 	if PuedeAtacar == false:
@@ -52,7 +60,7 @@ func AtaqueLigero():
 	get_parent().add_child(Puñetaso) #la pone como hijo del nodo 2d
 	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda #crea la piña adelante del jugador
 	Puñetaso.position.y = global_position.y
-	await get_tree().create_timer(Puñetaso.TiempoVida).timeout #duracion de la piña, la variable esta en PiñaLigera.gd
+	await get_tree().create_timer(0.25).timeout #duracion de la piña
 	PuedeMoverse = true #anti-spam
 	PuedeAtacar = true
 	print("toma piña ligera") #queque
@@ -67,11 +75,27 @@ func AtaquePesado():
 	get_parent().add_child(Puñetaso) #la pone como hijo del nodo 2d
 	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda #crea la piña adelante del jugador
 	Puñetaso.position.y = global_position.y
-	await get_tree().create_timer(Puñetaso.TiempoVida).timeout #duracion de la piña, la variable esta en PiñaLigera.gd
+	await get_tree().create_timer(0.4).timeout #duracion de la piña
 	PuedeMoverse = true #anti-spam
 	PuedeAtacar = true
 	print("toma piña Pesada") #queque
 
+func AtaqueDistancia():
+	if PuedeAtacar == false:
+		return
+	if Bananas > 0:
+		PuedeAtacar = false
+		PuedeMoverse = false
+		Bananas -= 1
+		var Lanzamiento = AtaqueLanzamiento.instantiate()
+		get_parent().add_child(Lanzamiento)
+		Lanzamiento.position.x = global_position.x + 45 * PlayerMirandoIzquierda 
+		Lanzamiento.position.y = global_position.y
+		await get_tree().create_timer(0.20).timeout #variable en su script
+		PuedeMoverse = true
+		PuedeAtacar = true
+		print("toma banana wachin")
+	
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "jorge_golpe" :
 		PuedeMoverse = true 
