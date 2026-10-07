@@ -97,6 +97,7 @@ scale = Vector2(0.33333343, 0.33333343)
 shape = SubResource("CircleShape2D_k4kro")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=384582993]
+visible = false
 offset_left = -17.000002
 offset_top = -15.0
 offset_right = 100.0
