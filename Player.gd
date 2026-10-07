@@ -11,8 +11,8 @@ var PuedeAtacar = true
 var Bananas = 10
 
 func _ready() -> void:
-	$AnimationPlayer.animation_finished.connect(_on_animation_finished)
-	$AnimationPlayer.play("jorge_idle")
+	$JorgeSprite.animation_finished.connect(_on_animation_finished)
+	$JorgeSprite.play("jorge_idle")
 
 func _physics_process(_delta):
 	#vida = 100     #para probar, lo hace inmortal, borrar despues
@@ -24,29 +24,33 @@ func _physics_process(_delta):
 		
 		# CONTROL DE ANIMACIONES DE MOVIMIENTO (Solo si PuedeMoverse es true)
 		if direccion != Vector2.ZERO:
-			$AnimationPlayer.play("jorge_R_walk")
+			$JorgeSprite.play("jorge_walk")
 			if Input.is_action_pressed("_MovimientoIzquierda"):
 				PlayerMirandoIzquierda = -1
-				$PlayerSprite.flip_h = true
+				$JorgeSprite.flip_h = true
 			elif Input.is_action_pressed("_MovimientoDerecha"):
 				PlayerMirandoIzquierda = 1
-				$PlayerSprite.flip_h = false
+				$JorgeSprite.flip_h = false
 	
 	if Input.is_action_just_released("_MovimientoDerecha") or Input.is_action_just_released("_MovimientoIzquierda") or Input.is_action_just_released("_MovimientoAbajo") or Input.is_action_just_released("_MovimientoArriba"):
-		$AnimationPlayer.play("jorge_idle")
+		$JorgeSprite.play("jorge_idle")
 	
 	$ProgressBar.value = vida
 	# CODIGO P Q FUNCIONEN LOS CORAZONCITOS
 	var porcentaje = float(vida) / $ProgressBar.max_value
 	$"../../UI_ingame/placeholder bananas contador/vida".size.x = porcentaje * 80
+	if vida == 0:
+		$JorgeSprite.play("jorge_muerte")
+		PuedeMoverse = false
+		PuedeAtacar = false
 
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("_AtaqueLigero"):
-		$AnimationPlayer.play("jorge_golpe")
+		$JorgeSprite.play("jorge_golpe")
 		AtaqueLigero()
 	if Input.is_action_just_pressed("_AtaquePesado"):
-		$AnimationPlayer.play("jorge_golpe")
+		$JorgeSprite.play("jorge_golpe")
 		AtaquePesado()
 	if Input.is_action_just_pressed("_AtaqueDistancia"):
 		AtaqueDistancia()
@@ -104,4 +108,4 @@ func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "jorge_golpe" :
 		PuedeMoverse = true 
 		PuedeAtacar = true
-		$AnimationPlayer.play("jorge_idle")
+		$JorgeSprite.play("jorge_idle")
