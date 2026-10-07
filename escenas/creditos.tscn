@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://dcomeq088bsv5"]
+
+[ext_resource type="Texture2D" uid="uid://cyi065vqqvu1l" path="res://assets/upheaval/BANNER.tres" id="1_pyrin"]
+[ext_resource type="Script" uid="uid://drqu8kwyj1prb" path="res://escenas/creditos.gd" id="1_re66e"]
+[ext_resource type="Theme" uid="uid://drqvxoc2hy3lt" path="res://ui_tema.tres" id="2_re66e"]
+[ext_resource type="FontFile" uid="uid://cynqrda8ceudw" path="res://assets/upheaval/upheavtt.ttf" id="3_tdcx2"]
+[ext_resource type="Texture2D" uid="uid://cka1dfv3mabpj" path="res://assets/upheaval/btn_atlas_tex.tres" id="4_pom6y"]
+[ext_resource type="Texture2D" uid="uid://bv6i5ovjvbi4w" path="res://assets/upheaval/btn_hov_atlas_tex.tres" id="5_5u507"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nsphd"]
+texture = ExtResource("4_pom6y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_usktw"]
+texture = ExtResource("5_5u507")
+
+[node name="Creditos" type="Control" unique_id=912426807]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_re66e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1793147158]
+layout_mode = 0
+offset_right = 1176.0
+offset_bottom = 696.0
+color = Color(0.2, 0.050980393, 0.10980392, 0.8980392)
+
+[node name="FONDO" type="TextureRect" parent="ColorRect" unique_id=1772895094]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.15002
+offset_top = -327.0
+offset_right = 231.15002
+offset_bottom = -189.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pyrin")
+
+[node name="TITULO" type="Label" parent="ColorRect/FONDO" unique_id=571973460]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = -44.0
+offset_right = 176.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_re66e")
+text = "CREDITOS"
+
+[node name="NOMBRE" type="Label" parent="ColorRect" unique_id=1847080247]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -189.0
+offset_right = 537.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.74555784, 0.74555784)
+theme = ExtResource("2_re66e")
+theme_override_colors/font_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_font_sizes/font_size = 55
+text = "Facundo Avila Kozak"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="rol" type="Label" parent="ColorRect/NOMBRE" unique_id=882287871]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.0
+offset_top = 34.5
+offset_right = 411.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_re66e")
+theme_override_colors/font_color = Color(0.9843137, 0.6627451, 0.4509804, 1)
+theme_override_font_sizes/font_size = 33
+text = "mecánicas base, jugador, enemigos comunes, Audio
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NOMBRE2" type="Label" parent="ColorRect" unique_id=1404525969]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = -86.0
+offset_right = 558.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.74555784, 0.74555784)
+theme = ExtResource("2_re66e")
+theme_override_colors/font_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_font_sizes/font_size = 55
+text = "Antonella Gaia Fortino Gatti"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="rol" type="Label" parent="ColorRect/NOMBRE2" unique_id=2144557287]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = 34.5
+offset_right = 452.0
+offset_bottom = 152.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_re66e")
+theme_override_colors/font_color = Color(0.9843137, 0.6627451, 0.4509804, 1)
+theme_override_font_sizes/font_size = 33
+text = "Arte - Personajes con Animaciones, UI
+Programacion - implementación de animaciones, boss, UI"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="NOMBRE3" type="Label" parent="ColorRect" unique_id=1565395322]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = 66.0
+offset_right = 558.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.74555784, 0.74555784)
+theme = ExtResource("2_re66e")
+theme_override_colors/font_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_font_sizes/font_size = 55
+text = "Milena Garcia Megra"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="rol" type="Label" parent="ColorRect/NOMBRE3" unique_id=2075763808]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = 34.5
+offset_right = 452.0
+offset_bottom = 152.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_re66e")
+theme_override_colors/font_color = Color(0.9843137, 0.6627451, 0.4509804, 1)
+theme_override_font_sizes/font_size = 33
+text = "Arte - Tilesets/objetos
+Programacion - tiles con terrenos, colisiones, barriles
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="VOLVER" type="Button" parent="." unique_id=561205114]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.99997
+offset_top = -111.99994
+offset_right = 159.03198
+offset_bottom = -36.99994
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.0169904, 1.0055734)
+theme_override_colors/font_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+theme_override_colors/font_hover_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_fonts/font = ExtResource("3_tdcx2")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_nsphd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_usktw")
+text = "volver"
+
+[connection signal="pressed" from="VOLVER" to="." method="_on_volver_pressed"]

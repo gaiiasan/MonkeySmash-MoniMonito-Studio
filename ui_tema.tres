@@ -1,0 +1,54 @@
+[gd_resource type="Theme" format=3 uid="uid://drqvxoc2hy3lt"]
+
+[ext_resource type="FontFile" uid="uid://cynqrda8ceudw" path="res://assets/upheaval/upheavtt.ttf" id="1_7aglo"]
+[ext_resource type="Texture2D" uid="uid://dbv336yknwepl" path="res://assets/UI.png" id="2_n25h5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qssos"]
+atlas = ExtResource("2_n25h5")
+region = Rect2(187, 59, 54, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_avnxn"]
+texture = SubResource("AtlasTexture_qssos")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33x8s"]
+atlas = ExtResource("2_n25h5")
+region = Rect2(129, 59, 54, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5s0fj"]
+texture = SubResource("AtlasTexture_33x8s")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+Button/colors/font_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+Button/colors/font_hover_pressed_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_7aglo")
+Button/styles/disabled = null
+Button/styles/disabled_mirrored = null
+Button/styles/hover = SubResource("StyleBoxTexture_avnxn")
+Button/styles/hover_mirrored = null
+Button/styles/hover_pressed_mirrored = null
+Button/styles/normal = SubResource("StyleBoxTexture_5s0fj")
+Button/styles/normal_mirrored = null
+Button/styles/pressed = null
+Button/styles/pressed_mirrored = null
+Label/colors/font_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+Label/font_sizes/font_size = 75
+Label/fonts/font = ExtResource("1_7aglo")

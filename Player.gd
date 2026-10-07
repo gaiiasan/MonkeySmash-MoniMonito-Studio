@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _physics_process(_delta):
 	#vida = 100     #para probar, lo hace inmortal, borrar despues
-	$"../placeholder bananas contador/Label".text = "Bananas: " + str(Bananas) #contador de bananas
+	$"../../UI_ingame/placeholder bananas contador/TextureRect/Label".text = str(Bananas) #contador de bananas
 	if PuedeMoverse:
 		var direccion = Input.get_vector("_MovimientoIzquierda", "_MovimientoDerecha", "_MovimientoArriba", "_MovimientoAbajo")
 		velocity = direccion * VelocidadJugador
@@ -34,7 +34,11 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_released("_MovimientoDerecha") or Input.is_action_just_released("_MovimientoIzquierda") or Input.is_action_just_released("_MovimientoAbajo") or Input.is_action_just_released("_MovimientoArriba"):
 		$AnimationPlayer.play("jorge_idle")
+	
 	$ProgressBar.value = vida
+	# CODIGO P Q FUNCIONEN LOS CORAZONCITOS
+	var porcentaje = float(vida) / $ProgressBar.max_value
+	$"../../UI_ingame/placeholder bananas contador/vida".size.x = porcentaje * 80
 
 
 func _input(_event: InputEvent) -> void:
@@ -101,6 +105,3 @@ func _on_animation_finished(anim_name: String) -> void:
 		PuedeMoverse = true 
 		PuedeAtacar = true
 		$AnimationPlayer.play("jorge_idle")
-		
-		
-		#esto es un cambio

@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://8p4emvb828dq"]
+
+[ext_resource type="Script" uid="uid://b8xhx2pjwahda" path="res://escenas/menu.gd" id="1_6cq3m"]
+[ext_resource type="FontFile" uid="uid://cynqrda8ceudw" path="res://assets/upheaval/upheavtt.ttf" id="1_d7r87"]
+[ext_resource type="Texture2D" uid="uid://cka1dfv3mabpj" path="res://assets/upheaval/btn_atlas_tex.tres" id="2_2owot"]
+[ext_resource type="Texture2D" uid="uid://bv6i5ovjvbi4w" path="res://assets/upheaval/btn_hov_atlas_tex.tres" id="3_6cq3m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yf5fn"]
+texture = ExtResource("2_2owot")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57qmd"]
+texture = ExtResource("3_6cq3m")
+
+[node name="MENU" type="Control" unique_id=1726383420]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -172.0
+offset_right = 156.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6cq3m")
+
+[node name="JUGAR" type="Button" parent="." unique_id=216682533]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.2826
+offset_top = -172.0
+offset_right = 150.74939
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0169904, 1.0055734)
+theme_override_colors/font_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+theme_override_colors/font_hover_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_fonts/font = ExtResource("1_d7r87")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+text = "JUGAR"
+
+[node name="opciones" type="Button" parent="." unique_id=1143832197]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -84.0
+offset_right = 151.03198
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0169904, 1.0055734)
+theme_override_colors/font_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+theme_override_colors/font_hover_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_fonts/font = ExtResource("1_d7r87")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+text = "OPCIONES"
+
+[node name="CREDITOS" type="Button" parent="." unique_id=154419149]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.7174
+offset_top = 4.0
+offset_right = 151.03674
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0169904, 1.0055734)
+theme_override_colors/font_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+theme_override_colors/font_hover_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_fonts/font = ExtResource("1_d7r87")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+text = "CREDITOS"
+
+[node name="SALIR" type="Button" parent="." unique_id=1204458188]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = 92.0
+offset_right = 151.03198
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0169904, 1.0055734)
+theme_override_colors/font_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+theme_override_colors/font_hover_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_fonts/font = ExtResource("1_d7r87")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_yf5fn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
+text = "SALIR"
+
+[connection signal="pressed" from="JUGAR" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="CREDITOS" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="SALIR" to="." method="_on_salir_pressed"]

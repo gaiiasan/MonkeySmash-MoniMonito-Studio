@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var TiempoVida = 0.25
-var daño = 30
+var daño = 50
 
 func _ready() -> void:
 	await get_tree().create_timer(TiempoVida).timeout

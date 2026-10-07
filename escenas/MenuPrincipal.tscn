@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://clenpv52ljmiv"]
+
+[ext_resource type="Texture2D" uid="uid://c6cqhjxg5ir4s" path="res://assets/upheaval/MENU.png" id="1_3bfcq"]
+[ext_resource type="PackedScene" uid="uid://8p4emvb828dq" path="res://escenas/menu.tscn" id="1_7pspv"]
+[ext_resource type="PackedScene" uid="uid://dcomeq088bsv5" path="res://escenas/creditos.tscn" id="3_ltmtt"]
+
+[node name="MenuPrincipal" type="Control" unique_id=804552425]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fondo" type="TextureRect" parent="." unique_id=1744141832]
+layout_mode = 0
+offset_left = -232.0
+offset_top = -104.0
+offset_right = 1161.4144
+offset_bottom = 672.0
+texture = ExtResource("1_3bfcq")
+expand_mode = 1
+
+[node name="MENU" parent="." unique_id=1726383420 instance=ExtResource("1_7pspv")]
+layout_mode = 1
+offset_top = -52.0
+offset_bottom = 292.0
+
+[node name="Creditos" parent="." unique_id=912426807 instance=ExtResource("3_ltmtt")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1168.0
+offset_bottom = 656.0
