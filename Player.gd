@@ -11,7 +11,6 @@ var PuedeAtacar = true
 var Bananas = 10
 
 func _ready() -> void:
-	$JorgeSprite.animation_finished.connect(_on_animation_finished)
 	$JorgeSprite.play("jorge_idle")
 
 func _physics_process(_delta):
@@ -112,9 +111,3 @@ func AtaqueDistancia():
 		PuedeMoverse = true
 		PuedeAtacar = true
 		print("toma banana wachin")
-	
-func _on_animation_finished(anim_name: String) -> void:
-	if anim_name == "jorge_golpe" :
-		PuedeMoverse = true 
-		PuedeAtacar = true
-		$JorgeSprite.play("jorge_idle")

@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	if EnMovimiento == true:
 		var distancia = global_position.distance_to(Objetivo.global_position)
 
-		if distancia > 100:
+		if distancia > 200:
 			move_and_collide(movimiento)
 			set_vector(Objetivo.global_position - global_position)
 			$BossSprite.play("boss_walk")
@@ -46,10 +46,10 @@ func _process(delta: float) -> void:
 	var direccion = Objetivo.global_position - global_position
 	if direccion.x > 0:
 		EnemigoMirando = 1
-		$BossSprite.flip_h = false # pa q se giren
+		$BossSprite.flip_h = true # pa q se giren
 	if direccion.x < 0:
 		EnemigoMirando = -1
-		$BossSprite.flip_h = true
+		$BossSprite.flip_h = false
 
 	$ProgressBar.value = vida
 	$"../../../../UI_ingame/placeholder bananas contador/Label/vidaBoss".value = vida
@@ -93,12 +93,10 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		#if body.name == "Player":
 	EnMovimiento = false
 	movimiento = Vector2.ZERO # Esto pone x:0 e y:0 de una
-	$BossSprite.offset = Vector2(0, -30) 
 	$BossSprite.play("boss_golpe")
 	await get_tree().create_timer(1.25).timeout
 	call_deferred("AtaqueEnemigo")
 	await get_tree().create_timer(0.25).timeout
-	$BossSprite.offset = Vector2(0, 0) 
 	$BossSprite.play("boss_idle")
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:

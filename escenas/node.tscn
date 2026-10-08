@@ -244,7 +244,7 @@ script = ExtResource("1_il450")
 position = Vector2(4467, 0)
 
 [node name="Player" parent="Node2D" unique_id=1637906704 instance=ExtResource("2_0ns0t")]
-position = Vector2(4123, 416.00003)
+position = Vector2(170, 416.00003)
 
 [node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=1559950509]
 position = Vector2(574, 322)
