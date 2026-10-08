@@ -42,6 +42,16 @@ func _physics_process(_delta):
 		$JorgeSprite.play("jorge_muerte")
 		PuedeMoverse = false
 		PuedeAtacar = false
+		
+		var capa_interfaz = CanvasLayer.new()
+		get_tree().current_scene.add_child(capa_interfaz)
+
+		var escena_popup = preload("uid://croyiopbno3g2")
+		var pantalla_derrota = escena_popup.instantiate()
+		
+		capa_interfaz.add_child(pantalla_derrota)
+		
+		get_tree().paused = true 
 
 
 func _input(_event: InputEvent) -> void:

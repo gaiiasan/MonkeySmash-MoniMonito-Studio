@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://croyiopbno3g2"]
+
+[ext_resource type="Script" uid="uid://drqu8kwyj1prb" path="res://escenas/creditos.gd" id="1_n4hqw"]
+[ext_resource type="Texture2D" uid="uid://cyi065vqqvu1l" path="res://assets/upheaval/BANNER.tres" id="2_swlnw"]
+[ext_resource type="Theme" uid="uid://drqvxoc2hy3lt" path="res://ui_tema.tres" id="3_eyli6"]
+[ext_resource type="FontFile" uid="uid://cynqrda8ceudw" path="res://assets/upheaval/upheavtt.ttf" id="4_t02ce"]
+[ext_resource type="Texture2D" uid="uid://cka1dfv3mabpj" path="res://assets/upheaval/btn_atlas_tex.tres" id="5_kcbn1"]
+[ext_resource type="Texture2D" uid="uid://bv6i5ovjvbi4w" path="res://assets/upheaval/btn_hov_atlas_tex.tres" id="6_lywqv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nsphd"]
+texture = ExtResource("5_kcbn1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_usktw"]
+texture = ExtResource("6_lywqv")
+
+[node name="Perdiste" type="Control" unique_id=912426807]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_n4hqw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1793147158]
+layout_mode = 0
+offset_right = 1176.0
+offset_bottom = 696.0
+color = Color(0.2, 0.050980393, 0.10980392, 0.8980392)
+
+[node name="FONDO" type="TextureRect" parent="ColorRect" unique_id=1772895094]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -268.0
+offset_right = 450.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_swlnw")
+
+[node name="TITULO" type="Label" parent="ColorRect/FONDO" unique_id=571973460]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = -44.0
+offset_right = 176.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_eyli6")
+theme_override_colors/font_color = Color(0.9843137, 0.6627451, 0.4509804, 1)
+theme_override_colors/font_outline_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 117
+text = "¡Game over!"
+
+[node name="quote" type="Label" parent="ColorRect" unique_id=1847080247]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -61.0
+offset_right = 589.52905
+offset_bottom = 129.46143
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.74555784, 0.74555784)
+theme = ExtResource("3_eyli6")
+theme_override_colors/font_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_font_sizes/font_size = 55
+text = "Fuiste derrotado
+¿quieres intentar de nuevo?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="VOLVER" type="Button" parent="." unique_id=561205114]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -244.48401
+offset_top = -128.0
+offset_right = 253.51599
+offset_bottom = -33.52661
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.0169904, 1.0055734)
+theme_override_colors/font_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+theme_override_colors/font_hover_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_fonts/font = ExtResource("4_t02ce")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_nsphd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_usktw")
+text = "   menu principal  "
+
+[node name="reintentar" type="Button" parent="." unique_id=868226198]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -244.48401
+offset_top = -235.99994
+offset_right = 253.51599
+offset_bottom = -141.52655
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.0169904, 1.0055734)
+theme_override_colors/font_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+theme_override_colors/font_hover_color = Color(1, 0.96862745, 0.827451, 1)
+theme_override_fonts/font = ExtResource("4_t02ce")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_nsphd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_usktw")
+text = "reintentar"
+
+[connection signal="pressed" from="VOLVER" to="." method="_on_volver_pressed"]
+[connection signal="pressed" from="reintentar" to="." method="_on_reintentar_pressed"]

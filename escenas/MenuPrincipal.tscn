@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://clenpv52ljmiv"]
 
-[ext_resource type="Texture2D" uid="uid://c6cqhjxg5ir4s" path="res://assets/upheaval/MENU.png" id="1_3bfcq"]
 [ext_resource type="PackedScene" uid="uid://8p4emvb828dq" path="res://escenas/menu.tscn" id="1_7pspv"]
+[ext_resource type="Texture2D" uid="uid://dklv0n1qd7wtt" path="res://assets/menuprincipal.png" id="1_mbk72"]
 [ext_resource type="PackedScene" uid="uid://dcomeq088bsv5" path="res://escenas/creditos.tscn" id="3_ltmtt"]
+[ext_resource type="Texture2D" uid="uid://cyi065vqqvu1l" path="res://assets/upheaval/BANNER.tres" id="4_jf6ie"]
+[ext_resource type="Theme" uid="uid://drqvxoc2hy3lt" path="res://ui_tema.tres" id="5_l5wd7"]
 
 [node name="MenuPrincipal" type="Control" unique_id=804552425]
 texture_filter = 1
@@ -15,12 +17,47 @@ grow_vertical = 2
 
 [node name="fondo" type="TextureRect" parent="." unique_id=1744141832]
 layout_mode = 0
-offset_left = -232.0
-offset_top = -104.0
-offset_right = 1161.4144
-offset_bottom = 672.0
-texture = ExtResource("1_3bfcq")
+offset_left = -52.0
+offset_right = 1341.4144
+offset_bottom = 776.0
+scale = Vector2(0.9206974, 0.9206974)
+texture = ExtResource("1_mbk72")
 expand_mode = 1
+
+[node name="FONDO" type="TextureRect" parent="." unique_id=1025901709]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -278.0
+offset_right = 450.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jf6ie")
+
+[node name="TITULO" type="Label" parent="FONDO" unique_id=1581587016]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.5
+offset_top = -44.0
+offset_right = 176.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_l5wd7")
+theme_override_colors/font_color = Color(0.9843137, 0.6627451, 0.4509804, 1)
+theme_override_colors/font_outline_color = Color(0.4745098, 0.23137255, 0.33333334, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 91
+text = "Monkey Slash!"
 
 [node name="MENU" parent="." unique_id=1726383420 instance=ExtResource("1_7pspv")]
 layout_mode = 1
