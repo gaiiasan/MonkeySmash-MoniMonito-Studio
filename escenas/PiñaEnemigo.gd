@@ -10,3 +10,5 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	body.vida -= daño
+	body.get_node("JorgeSprite").play("jorge_recibedanio")
+	

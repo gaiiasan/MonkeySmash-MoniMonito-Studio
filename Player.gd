@@ -53,6 +53,7 @@ func _input(_event: InputEvent) -> void:
 		$JorgeSprite.play("jorge_golpe")
 		AtaquePesado()
 	if Input.is_action_just_pressed("_AtaqueDistancia"):
+		$JorgeSprite.play("jorge_banana")
 		AtaqueDistancia()
 	if Input.is_action_just_pressed("_Pruebas"): #tecla M
 		print(position)
@@ -69,6 +70,8 @@ func AtaqueLigero():
 	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda #crea la piña adelante del jugador
 	Puñetaso.position.y = global_position.y
 	await get_tree().create_timer(0.25).timeout #duracion de la piña
+	await get_tree().create_timer(0.55).timeout
+	$JorgeSprite.play("jorge_idle")
 	PuedeMoverse = true #anti-spam
 	PuedeAtacar = true
 	print("toma piña ligera") #queque
@@ -84,6 +87,8 @@ func AtaquePesado():
 	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda #crea la piña adelante del jugador
 	Puñetaso.position.y = global_position.y
 	await get_tree().create_timer(0.4).timeout #duracion de la piña
+	await get_tree().create_timer(0.55).timeout
+	$JorgeSprite.play("jorge_idle")
 	PuedeMoverse = true #anti-spam
 	PuedeAtacar = true
 	print("toma piña Pesada") #queque
@@ -95,11 +100,15 @@ func AtaqueDistancia():
 		PuedeAtacar = false
 		PuedeMoverse = false
 		Bananas -= 1
+		await get_tree().create_timer(0.55).timeout
+		$JorgeSprite.play("jorge_idle")
+		
 		var Lanzamiento = AtaqueLanzamiento.instantiate()
 		get_parent().add_child(Lanzamiento)
 		Lanzamiento.position.x = global_position.x + 45 * PlayerMirandoIzquierda 
-		Lanzamiento.position.y = global_position.y
+		Lanzamiento.position.y = global_position.y - 15
 		await get_tree().create_timer(0.20).timeout #variable en su script
+
 		PuedeMoverse = true
 		PuedeAtacar = true
 		print("toma banana wachin")
