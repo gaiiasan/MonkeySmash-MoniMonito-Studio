@@ -79,7 +79,7 @@ func _on_pelea_boss_body_entered(_body: Node2D) -> void:
 	#$Node2D/PeleaBoss/CollisionShape2D.set_deferred("disabled", true) 
 	var zona_activacion = get_tree().current_scene.find_child("PeleaBoss", true, false)
 	$Camera2D.enabled = false
-	$Player/CameraJEFE.enabled = true
+	$CameraJEFE.enabled = true
 	$"../UI_ingame/placeholder bananas contador/Label".show()
 	if zona_activacion != null:
 		zona_activacion.queue_free() # Borra el área de forma 100% segura

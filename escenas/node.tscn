@@ -241,24 +241,10 @@ tile_set = SubResource("TileSet_g4v7s")
 script = ExtResource("1_il450")
 
 [node name="BossFight" parent="Node2D" unique_id=1866523915 instance=ExtResource("10_doqx2")]
-position = Vector2(4288, 0)
+position = Vector2(4467, 0)
 
 [node name="Player" parent="Node2D" unique_id=1637906704 instance=ExtResource("2_0ns0t")]
-position = Vector2(53, 416.00003)
-collision_mask = 142
-
-[node name="CameraJEFE" type="Camera2D" parent="Node2D/Player" unique_id=1530455220]
-position = Vector2(256, -29.333359)
-offset = Vector2(-500, 0)
-enabled = false
-limit_left = 4078
-limit_top = -3
-limit_right = 5928
-limit_bottom = 674
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 4.0
-drag_horizontal_enabled = true
+position = Vector2(4123, 416.00003)
 
 [node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=1559950509]
 position = Vector2(574, 322)
@@ -284,12 +270,24 @@ shape = SubResource("SeparationRayShape2D_8n7i7")
 position = Vector2(2048, -23)
 
 [node name="PeleaBoss" type="Area2D" parent="Node2D/ActivadorDelBoss" unique_id=1730294876]
+position = Vector2(177, 0)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/ActivadorDelBoss/PeleaBoss" unique_id=781104756]
 position = Vector2(2112, 367)
 scale = Vector2(6.885, 6.885)
 shape = SubResource("SegmentShape2D_n7bri")
+
+[node name="CameraJEFE" type="Camera2D" parent="Node2D" unique_id=1530455220]
+position = Vector2(821, 327.99994)
+scale = Vector2(3, 3)
+enabled = false
+limit_left = 4301
+limit_top = -3
+limit_right = 5471
+limit_bottom = 674
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
 
 [node name="placeholder controles" type="Label" parent="." unique_id=1098701240]
 offset_left = 13.0
