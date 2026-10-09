@@ -2,21 +2,22 @@ extends StaticBody2D
 
 var destruido = false
 var daño = 40
-var PiñaEnemigo= preload("uid://ixo5ty685qcc")
+var DañoAreaCherry= preload("uid://ixo5ty685qcc")
 
 func recibir_golpe():
 	if destruido:
 		return
 
 	destruido = true
+	$BarrilCherrySprite.play("cherry_explosion")
+	
 	explotar.call_deferred()
 
 
 func explotar():
-	var Puñetaso = PiñaEnemigo.instantiate() #crea la piña
-	get_parent().add_child(Puñetaso) #la pone como hijo del nodo 2d
-	Puñetaso.position.x = global_position.x
-	Puñetaso.position.y = global_position.y
+	var Boom = DañoAreaCherry.instantiate()
+	get_tree().current_scene.add_child(Boom)
+	Boom.global_position = global_position
 	print("KABOOOOOOOOOOOOOOM") #queque
 
 	queue_free()

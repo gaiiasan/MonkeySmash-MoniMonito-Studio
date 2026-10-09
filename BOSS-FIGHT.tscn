@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://do3ymv1xoo5xi" path="res://escenas/boss.tscn" id="4_n7bri"]
 [ext_resource type="Texture2D" uid="uid://egcx8xsu53ce" path="res://assets/boss/bar_full.tres" id="5_ij11r"]
-[ext_resource type="Texture2D" uid="uid://bnkmwayu4kh44" path="res://assets/Barrel Sprite.png" id="5_lvvm6"]
+[ext_resource type="PackedScene" uid="uid://cr8wa2dwmavmq" path="res://escenas/barril_cherry.tscn" id="5_lvvm6"]
 [ext_resource type="Texture2D" uid="uid://bm1exaj5behjg" path="res://assets/boss/bar_empty.tres" id="6_xpwsm"]
 [ext_resource type="Theme" uid="uid://drqvxoc2hy3lt" path="res://ui_tema.tres" id="7_nq5lo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 9.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx6s3"]
+radius = 16.013884
 
 [node name="BossFight" type="Node2D" unique_id=1866523915]
 
@@ -57,50 +57,40 @@ scale = Vector2(1.52, 1.52)
 
 [node name="barriles placeholder" type="Node2D" parent="." unique_id=1916596316]
 
-[node name="Barril" type="Area2D" parent="barriles placeholder" unique_id=1942102889]
-position = Vector2(-78.00001, 245)
-scale = Vector2(3.64, 3.64)
-collision_layer = 8
-collision_mask = 3
+[node name="BarrilCherry4" type="CollisionShape2D" parent="barriles placeholder" unique_id=1445438266 groups=["BarrilesGrupo"]]
+position = Vector2(886.00006, 246)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_lx6s3")
+debug_color = Color(0.8753195, 0.33672905, 0.20190868, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="barriles placeholder/Barril" unique_id=1247324987]
-texture = ExtResource("5_lvvm6")
+[node name="BarrilCherry3" type="CollisionShape2D" parent="barriles placeholder" unique_id=860471684 groups=["BarrilesGrupo"]]
+position = Vector2(-78, 563)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_lx6s3")
+debug_color = Color(0.8753195, 0.33672905, 0.20190868, 0.41960785)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="barriles placeholder/Barril" unique_id=98650317]
-shape = SubResource("CircleShape2D_yf5fn")
-
-[node name="Barril2" type="Area2D" parent="barriles placeholder" unique_id=1620094823]
-position = Vector2(886, 245)
-scale = Vector2(3.64, 3.64)
-collision_layer = 8
-collision_mask = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="barriles placeholder/Barril2" unique_id=1662651500]
-texture = ExtResource("5_lvvm6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="barriles placeholder/Barril2" unique_id=1906369820]
-shape = SubResource("CircleShape2D_yf5fn")
-
-[node name="Barril3" type="Area2D" parent="barriles placeholder" unique_id=2017805869]
-position = Vector2(-78.00001, 562)
-scale = Vector2(3.64, 3.64)
-collision_layer = 8
-collision_mask = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="barriles placeholder/Barril3" unique_id=743854432]
-texture = ExtResource("5_lvvm6")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="barriles placeholder/Barril3" unique_id=1845892336]
-shape = SubResource("CircleShape2D_yf5fn")
-
-[node name="Barril4" type="Area2D" parent="barriles placeholder" unique_id=1840492862]
+[node name="BarrilCherry" type="CollisionShape2D" parent="barriles placeholder" unique_id=457979189 groups=["BarrilesGrupo"]]
 position = Vector2(884, 561)
-scale = Vector2(3.64, 3.64)
-collision_layer = 8
-collision_mask = 3
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_lx6s3")
+debug_color = Color(0.8753195, 0.33672905, 0.20190868, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="barriles placeholder/Barril4" unique_id=1052679274]
-texture = ExtResource("5_lvvm6")
+[node name="BarrilCherry2" type="CollisionShape2D" parent="barriles placeholder" unique_id=228855145 groups=["BarrilesGrupo"]]
+position = Vector2(-79, 244.00002)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_lx6s3")
+debug_color = Color(0.8753195, 0.33672905, 0.20190868, 0.41960785)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="barriles placeholder/Barril4" unique_id=1565563195]
-shape = SubResource("CircleShape2D_yf5fn")
+[node name="BarrilesReales" type="Node2D" parent="." unique_id=1042336478]
+
+[node name="BarrilCherry" parent="BarrilesReales" unique_id=1890214226 instance=ExtResource("5_lvvm6")]
+position = Vector2(-79, 244.00002)
+
+[node name="BarrilCherry2" parent="BarrilesReales" unique_id=1889057612 instance=ExtResource("5_lvvm6")]
+position = Vector2(-78, 563)
+
+[node name="BarrilCherry3" parent="BarrilesReales" unique_id=886917827 instance=ExtResource("5_lvvm6")]
+position = Vector2(886.00006, 246)
+
+[node name="BarrilCherry4" parent="BarrilesReales" unique_id=338988980 instance=ExtResource("5_lvvm6")]
+position = Vector2(884, 561)

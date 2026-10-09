@@ -9,7 +9,8 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Barril_banana" or body.name == "BarrilCherry":
+	if body.is_in_group("BarrilesGrupo"):
+	#if body.name == "Barril_banana" or body.name == "BarrilCherry":
 		print("soy un abrril")
 		body.recibir_golpe()
 		return

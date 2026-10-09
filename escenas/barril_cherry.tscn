@@ -1,20 +1,93 @@
 [gd_scene format=3 uid="uid://cr8wa2dwmavmq"]
 
 [ext_resource type="Script" uid="uid://dhytphnk4q1d6" path="res://escenas/barril_cherry.gd" id="1_033fl"]
-[ext_resource type="Texture2D" uid="uid://dol67dex34ej3" path="res://assets/barril_cherry.tres" id="2_mwi61"]
+[ext_resource type="Texture2D" uid="uid://c4sgpqqr2ufx2" path="res://TILES/explosion cherry-Sheet.png" id="3_mwi61"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hosud"]
+atlas = ExtResource("3_mwi61")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cb5qm"]
+atlas = ExtResource("3_mwi61")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw056"]
+atlas = ExtResource("3_mwi61")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8v62"]
+atlas = ExtResource("3_mwi61")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og8s4"]
+atlas = ExtResource("3_mwi61")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg42e"]
+atlas = ExtResource("3_mwi61")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0uqj"]
+atlas = ExtResource("3_mwi61")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qtxo"]
+atlas = ExtResource("3_mwi61")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkui4"]
+atlas = ExtResource("3_mwi61")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hosud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cb5qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw056")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8v62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og8s4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg42e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0uqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qtxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkui4")
+}],
+"loop": 0,
+"name": &"cherry_explosion",
+"speed": 9.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lx6s3"]
 radius = 16.013884
 
-[node name="BarrilCherry" type="StaticBody2D" unique_id=1890214226]
+[node name="BarrilCherry" type="StaticBody2D" unique_id=1890214226 groups=["BarrilesGrupo"]]
 scale = Vector2(1.5, 1.5)
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_033fl")
 
-[node name="BarrilCherry2" type="Sprite2D" parent="." unique_id=1744935278]
-texture = ExtResource("2_mwi61")
+[node name="BarrilCherrySprite" type="AnimatedSprite2D" parent="." unique_id=907469599 groups=["BarrilesGrupo"]]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"cherry_explosion"
 
-[node name="BarrilCherry" type="CollisionShape2D" parent="." unique_id=1445438266]
+[node name="BarrilCherry" type="CollisionShape2D" parent="." unique_id=1445438266 groups=["BarrilesGrupo"]]
 shape = SubResource("CircleShape2D_lx6s3")
 debug_color = Color(0.8753195, 0.33672905, 0.20190868, 0.41960785)
