@@ -80,7 +80,7 @@ radius = 16.013884
 [node name="BarrilCherry" type="StaticBody2D" unique_id=1890214226 groups=["BarrilesGrupo"]]
 scale = Vector2(1.5, 1.5)
 collision_layer = 8
-collision_mask = 3
+collision_mask = 67
 script = ExtResource("1_033fl")
 
 [node name="BarrilCherrySprite" type="AnimatedSprite2D" parent="." unique_id=907469599 groups=["BarrilesGrupo"]]

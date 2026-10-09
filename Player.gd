@@ -117,7 +117,7 @@ func AtaqueDistancia():
 		
 		var Lanzamiento = AtaqueLanzamiento.instantiate()
 		get_parent().add_child(Lanzamiento)
-		Lanzamiento.position.x = global_position.x + 45 * PlayerMirandoIzquierda 
+		Lanzamiento.position.x = global_position.x + 65 * PlayerMirandoIzquierda 
 		Lanzamiento.position.y = global_position.y - 15
 		await get_tree().create_timer(0.20).timeout #variable en su script
 

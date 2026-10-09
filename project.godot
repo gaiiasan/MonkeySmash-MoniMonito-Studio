@@ -79,6 +79,7 @@ _Pruebas={
 2d_physics/layer_2="ENEMIGO"
 2d_physics/layer_3="PAREDES"
 2d_physics/layer_4="BARRILES"
+2d_physics/layer_7="BANANA"
 
 [physics]
 
