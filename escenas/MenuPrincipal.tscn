@@ -60,6 +60,7 @@ theme_override_font_sizes/font_size = 91
 text = "Monkey Slash!"
 
 [node name="MENU" parent="." unique_id=1726383420 instance=ExtResource("1_7pspv")]
+visible = true
 layout_mode = 1
 offset_top = -52.0
 offset_bottom = 292.0

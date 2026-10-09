@@ -13,6 +13,7 @@ texture = ExtResource("3_6cq3m")
 
 [node name="MENU" type="Control" unique_id=1726383420]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
