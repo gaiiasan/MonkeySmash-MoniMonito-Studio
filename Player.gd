@@ -12,9 +12,7 @@ var Bananas = 10
 
 func _ready() -> void:
 	$JorgeSprite.play("jorge_idle")
-
 func _physics_process(_delta):
-	#vida = 100     #para probar, lo hace inmortal, borrar despues
 	$"../../UI_ingame/placeholder bananas contador/TextureRect/Label".text = str(Bananas) #contador de bananas
 	if PuedeMoverse:
 		var direccion = Input.get_vector("_MovimientoIzquierda", "_MovimientoDerecha", "_MovimientoArriba", "_MovimientoAbajo")
@@ -31,7 +29,7 @@ func _physics_process(_delta):
 				PlayerMirandoIzquierda = 1
 				$JorgeSprite.flip_h = false
 	
-	if Input.is_action_just_released("_MovimientoDerecha") or Input.is_action_just_released("_MovimientoIzquierda") or Input.is_action_just_released("_MovimientoAbajo") or Input.is_action_just_released("_MovimientoArriba"):
+	if PuedeMoverse and (Input.is_action_just_released("_MovimientoDerecha") or Input.is_action_just_released("_MovimientoIzquierda") or Input.is_action_just_released("_MovimientoAbajo") or Input.is_action_just_released("_MovimientoArriba")):
 		$JorgeSprite.play("jorge_idle")
 	
 	$ProgressBar.value = vida
@@ -43,19 +41,15 @@ func _physics_process(_delta):
 		$JorgeSprite.play("jorge_muerte")
 		PuedeMoverse = false
 		PuedeAtacar = false
-		
 		var capa_interfaz = CanvasLayer.new()
 		get_tree().current_scene.add_child(capa_interfaz)
-
 		var escena_popup = preload("uid://croyiopbno3g2")
 		var pantalla_derrota = escena_popup.instantiate()
-		
 		capa_interfaz.add_child(pantalla_derrota)
-		
 		get_tree().paused = true 
-
-
 func _input(_event: InputEvent) -> void:
+	if PuedeAtacar == false:
+		return
 	if Input.is_action_just_pressed("_AtaqueLigero"):
 		$JorgeSprite.play("jorge_golpe")
 		AtaqueLigero()
@@ -65,46 +59,35 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("_AtaqueDistancia"):
 		$JorgeSprite.play("jorge_banana")
 		AtaqueDistancia()
-	if Input.is_action_just_pressed("_Pruebas"): #tecla M
-		print(position)
-
 func AtaqueLigero():
 	if PuedeAtacar == false:
 		return
-	
-	PuedeAtacar = false #anti-spam
+	PuedeAtacar = false
 	PuedeMoverse = false
-
-	var Puñetaso = PiñaLigera.instantiate() #crea la piña
-	await get_tree().create_timer(0.3).timeout #duracion de la piña
-	get_parent().add_child(Puñetaso) #la pone como hijo del nodo 2d
-	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda #crea la piña adelante del jugador
+	var Puñetaso = PiñaLigera.instantiate()
+	await get_tree().create_timer(0.3).timeout
+	get_parent().add_child(Puñetaso)
+	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda 
 	Puñetaso.position.y = global_position.y
-	
 	await get_tree().create_timer(0.55).timeout
 	$JorgeSprite.play("jorge_idle")
-	PuedeMoverse = true #anti-spam
+	PuedeMoverse = true
 	PuedeAtacar = true
-	print("toma piña ligera") #queque
-
 func AtaquePesado():
 	if PuedeAtacar == false:
 		return
-	
-	PuedeAtacar = false #anti-spam
+	PuedeAtacar = false 
 	PuedeMoverse = false
-	await get_tree().create_timer(0.4).timeout #duracion de la piña
-	var Puñetaso = PiñaPesada.instantiate() #crea la piña
-	get_parent().add_child(Puñetaso) #la pone como hijo del nodo 2d
-	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda #crea la piña adelante del jugador
+	await get_tree().create_timer(0.4).timeout
+	var Puñetaso = PiñaPesada.instantiate()
+	get_parent().add_child(Puñetaso)
+	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda
 	Puñetaso.position.y = global_position.y
-	
+
 	await get_tree().create_timer(0.55).timeout
 	$JorgeSprite.play("jorge_idle")
-	PuedeMoverse = true #anti-spam
+	PuedeMoverse = true
 	PuedeAtacar = true
-	print("toma piña Pesada") #queque
-
 func AtaqueDistancia():
 	if PuedeAtacar == false:
 		return
@@ -112,15 +95,13 @@ func AtaqueDistancia():
 		PuedeAtacar = false
 		PuedeMoverse = false
 		Bananas -= 1
-		await get_tree().create_timer(0.55).timeout
-		$JorgeSprite.play("jorge_idle")
-		
+		await get_tree().create_timer(0.60).timeout
 		var Lanzamiento = AtaqueLanzamiento.instantiate()
 		get_parent().add_child(Lanzamiento)
 		Lanzamiento.position.x = global_position.x + 65 * PlayerMirandoIzquierda 
 		Lanzamiento.position.y = global_position.y - 15
-		await get_tree().create_timer(0.20).timeout #variable en su script
-
+		await get_tree().create_timer(0.15).timeout
+		$JorgeSprite.play("jorge_idle")
+		await get_tree().create_timer(0.20).timeout 
 		PuedeMoverse = true
 		PuedeAtacar = true
-		print("toma banana wachin")

@@ -5,11 +5,12 @@ extends CharacterBody2D
 var PiñaEnemigo= preload("uid://dqytvfkuo6o6n")
 var Ganaste = preload("uid://vu0vf53xxp6y")
 
-var vida = 90
+var vida = 200
 var movimiento = Vector2()
 var velocidad = 3
 var EnMovimiento = false
 var EnemigoMirando = 1
+var PuedeAtacar = true
 
 # variables q afectan elecciond e objetivo a aatacar
 var Objetivo
@@ -76,32 +77,35 @@ func _process(delta: float) -> void:
 func set_vector(vector):
 	movimiento = vector.normalized() * velocidad
 
-func AtaqueEnemigo():
-	
-	var Puñetaso = PiñaEnemigo.instantiate() #crea la piña
-	get_parent().add_child(Puñetaso) #la pone como hijo del nodo 2d
-	Puñetaso.global_position = global_position + Vector2(0 * EnemigoMirando, 35) #crea la piña adelante del jugador
-	await get_tree().create_timer(Puñetaso.TiempoVida).timeout #duracion de la piña, la variable esta en PiñaLigera.gd
-	print("MUERE asqueroso y repugnante JUGADORRRRRRRRR") #queque
+
 
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name == "boss_golpe" :
 		$BossSprite.play("boss_idle")
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-
-		#if body.name == "Player":
+	if PuedeAtacar == false:
+		return
+	PuedeAtacar = false
 	EnMovimiento = false
-	movimiento = Vector2.ZERO # Esto pone x:0 e y:0 de una
+	movimiento = Vector2.ZERO 
 	$BossSprite.play("boss_golpe")
-	await get_tree().create_timer(1.25).timeout
+	await get_tree().create_timer(0.55).timeout
 	call_deferred("AtaqueEnemigo")
 	await get_tree().create_timer(0.25).timeout
 	$BossSprite.play("boss_idle")
+	PuedeAtacar = true
+	EnMovimiento = true
+
+func AtaqueEnemigo():
+	var Puñetaso = PiñaEnemigo.instantiate()
+	get_parent().add_child(Puñetaso) 
+	Puñetaso.global_position = global_position + Vector2(0 * EnemigoMirando, 35)
+	await get_tree().create_timer(Puñetaso.TiempoVida).timeout 
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
-	await get_tree().create_timer(1.25).timeout
-	EnMovimiento = true
+	if PuedeAtacar == true:
+		EnMovimiento = true
 
 func ElegirObjetivo():
 	var numero = randi_range(0, 5)

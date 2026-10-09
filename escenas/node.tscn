@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://m1sa882ple1w" path="res://assets/PARALLAX/3.png" id="3_2fsu4"]
 [ext_resource type="Script" uid="uid://cmtsfo3ny7toi" path="res://camera_2d.gd" id="4_db2nf"]
 [ext_resource type="Texture2D" uid="uid://dc0el744471hg" path="res://assets/PARALLAX/4.png" id="4_l6afd"]
-[ext_resource type="PackedScene" uid="uid://dwcbu21dt2lu7" path="res://escenas/BananaPickUp.tscn" id="5_2no80"]
 [ext_resource type="Texture2D" uid="uid://cnja8yfppkq3g" path="res://assets/upheaval/banana.tres" id="6_db2nf"]
 [ext_resource type="Theme" uid="uid://drqvxoc2hy3lt" path="res://ui_tema.tres" id="7_l3ux4"]
 [ext_resource type="Texture2D" uid="uid://fqjclnu4jrtj" path="res://assets/upheaval/corazon_ok.tres" id="8_l3ux4"]
@@ -718,6 +717,9 @@ sources/0 = SubResource("TileSetAtlasSource_lx6s3")
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_8n7i7"]
 length = 634.0
 
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_vs83a"]
+length = 635.0
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_n7bri"]
 b = Vector2(0, 20.915031)
 
@@ -786,7 +788,7 @@ script = ExtResource("1_il450")
 position = Vector2(4475, 0)
 
 [node name="Player" parent="Node2D" unique_id=1637906704 instance=ExtResource("2_0ns0t")]
-position = Vector2(170, 416.00003)
+position = Vector2(379, 411.00003)
 
 [node name="CameraJEFE" type="Camera2D" parent="Node2D/Player" unique_id=1530455220]
 position = Vector2(256, -29.333359)
@@ -809,17 +811,32 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("4_db2nf")
 
-[node name="BananaPickUp" parent="Node2D" unique_id=1499009987 instance=ExtResource("5_2no80")]
-position = Vector2(796, 272)
-
-[node name="BananaPickUp2" parent="Node2D" unique_id=1656836025 instance=ExtResource("5_2no80")]
-position = Vector2(1086, 535)
-
 [node name="Pelea1" type="Area2D" parent="Node2D" unique_id=2147135282]
-position = Vector2(1151, -1)
+position = Vector2(1044, -3)
 collision_layer = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Pelea1" unique_id=956962092]
+shape = SubResource("SeparationRayShape2D_8n7i7")
+
+[node name="Pelea2" type="Area2D" parent="Node2D" unique_id=747609033]
+position = Vector2(1974, 0)
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Pelea2" unique_id=1521046395]
+shape = SubResource("SeparationRayShape2D_8n7i7")
+
+[node name="Pelea3" type="Area2D" parent="Node2D" unique_id=1677796419]
+position = Vector2(2849, -6)
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Pelea3" unique_id=457179770]
+shape = SubResource("SeparationRayShape2D_vs83a")
+
+[node name="Pelea4" type="Area2D" parent="Node2D" unique_id=890941905]
+position = Vector2(3790, -2)
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Pelea4" unique_id=1952218233]
 shape = SubResource("SeparationRayShape2D_8n7i7")
 
 [node name="ActivadorDelBoss" type="Node2D" parent="Node2D" unique_id=598014561]
@@ -830,7 +847,7 @@ position = Vector2(177, 0)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/ActivadorDelBoss/PeleaBoss" unique_id=781104756]
-position = Vector2(2112, 367)
+position = Vector2(2137, 368)
 scale = Vector2(6.885, 6.885)
 shape = SubResource("SegmentShape2D_n7bri")
 
@@ -945,17 +962,20 @@ offset_top = 33.999996
 offset_right = 80.000015
 offset_bottom = 43.092342
 scale = Vector2(7.9187474, 7.9187474)
+max_value = 200.0
 step = 0.0
-value = 100.0
+value = 200.0
 texture_under = ExtResource("9_4jgxa")
 texture_progress = ExtResource("10_spgmn")
 
 [node name="Barril_banana" parent="." unique_id=722478714 instance=ExtResource("10_i2vj7")]
-position = Vector2(432, 429)
-scale = Vector2(1.5, 1.5)
+position = Vector2(977, 508)
 
-[node name="BarrilCherry" parent="." unique_id=1890214226 instance=ExtResource("17_rmnfm")]
-position = Vector2(432, 307)
+[node name="BarrilCherryPelea3" parent="." unique_id=435544547 instance=ExtResource("17_rmnfm")]
+position = Vector2(3025, 415)
 
 [connection signal="body_entered" from="Node2D/Pelea1" to="Node2D" method="_on_pelea_1_body_entered"]
+[connection signal="body_entered" from="Node2D/Pelea2" to="Node2D" method="_on_pelea_2_body_entered"]
+[connection signal="body_entered" from="Node2D/Pelea3" to="Node2D" method="_on_pelea_3_body_entered"]
+[connection signal="body_entered" from="Node2D/Pelea4" to="Node2D" method="_on_pelea_4_body_entered"]
 [connection signal="body_entered" from="Node2D/ActivadorDelBoss/PeleaBoss" to="Node2D" method="_on_pelea_boss_body_entered"]

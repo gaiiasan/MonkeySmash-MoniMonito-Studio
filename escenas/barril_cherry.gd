@@ -18,6 +18,4 @@ func explotar():
 	var Boom = DañoAreaCherry.instantiate()
 	get_tree().current_scene.add_child(Boom)
 	Boom.global_position = global_position
-	print("KABOOOOOOOOOOOOOOM") #queque
-
 	queue_free()

@@ -78,6 +78,7 @@ animations = [{
 radius = 18.0
 
 [node name="BarrilBanana" type="StaticBody2D" unique_id=902430059 groups=["BarrilesGrupo"]]
+scale = Vector2(1.5, 1.5)
 collision_layer = 8
 collision_mask = 67
 script = ExtResource("1_1unah")

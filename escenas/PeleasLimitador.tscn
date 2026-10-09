@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cd4wb67rijrsc"]
+
+[ext_resource type="Script" uid="uid://b0g1wvhgu35g8" path="res://escenas/PeleasLimitador.gd" id="1_ej5ck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8n7i7"]
+size = Vector2(20, 464)
+
+[node name="PeleasLimitador" type="StaticBody2D" unique_id=931594147]
+collision_layer = 132
+collision_mask = 3
+script = ExtResource("1_ej5ck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1221838254]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_8n7i7")

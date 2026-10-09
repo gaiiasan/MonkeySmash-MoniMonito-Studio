@@ -7,13 +7,10 @@ func _ready() -> void:
 	await get_tree().create_timer(TiempoVida).timeout
 	queue_free()
 
-
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Barril_banana":
-		print("soy un abrril")
+	if body.is_in_group("BarrilesGrupo"):
 		body.recibir_golpe()
 		return
 	else:
-		print("soy un enemigo")
 		body.vida -= daño
 		body.position.x += 40 * PlayerMirando

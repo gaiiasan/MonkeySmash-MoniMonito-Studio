@@ -4,7 +4,6 @@ var BananaEscena = preload("res://escenas/BananaPickUp.tscn")
 var destruido = false
 
 func recibir_golpe():
-	print("me golpean aaaaaaaaaaaaaaa")
 	destruido = true
 	$BarrilBanana.play("barril_banana_epxlosion")
 	await get_tree().create_timer(0.3).timeout

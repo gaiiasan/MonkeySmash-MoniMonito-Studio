@@ -11,6 +11,10 @@ func _ready() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	body.vida -= daño
-	body.position.x += 15 * PlayerMirando
-	queue_free()
+	if body.is_in_group("BarrilesGrupo"):
+		body.recibir_golpe()
+		queue_free()
+	else:
+		body.vida -= daño
+		body.position.x += 15 * PlayerMirando
+		queue_free()
