@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://egcx8xsu53ce" path="res://assets/boss/bar_full.tres" id="9_4jgxa"]
 [ext_resource type="Texture2D" uid="uid://dxnvoosa7j5hx" path="res://assets/Little_Bits_Office_Floors.png" id="9_doqx2"]
 [ext_resource type="PackedScene" uid="uid://cgusoqni5e42u" path="res://BOSS-FIGHT.tscn" id="10_doqx2"]
+[ext_resource type="PackedScene" uid="uid://dcsgaf8ekdc3r" path="res://escenas/barril_banana.tscn" id="10_i2vj7"]
 [ext_resource type="Texture2D" uid="uid://bm1exaj5behjg" path="res://assets/boss/bar_empty.tres" id="10_spgmn"]
 [ext_resource type="Texture2D" uid="uid://cs3nmi53ho1jt" path="res://assets/Little_Bits_office_walls.png" id="10_yiow4"]
 
@@ -1261,6 +1262,9 @@ limit_right = 5471
 limit_bottom = 674
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
+
+[node name="Barril_banana" parent="Node2D" unique_id=722478714 instance=ExtResource("10_i2vj7")]
+position = Vector2(276, 384)
 
 [node name="placeholder controles" type="Label" parent="." unique_id=1098701240]
 visible = false

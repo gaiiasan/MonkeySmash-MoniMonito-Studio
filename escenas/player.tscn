@@ -166,9 +166,7 @@ script = ExtResource("1_kkt6c")
 
 [node name="JorgeSprite" type="AnimatedSprite2D" parent="." unique_id=244554119]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"jorge_banana"
-frame = 2
-frame_progress = 0.77312374
+animation = &"jorge_golpe"
 
 [node name="PlayerHurtbox" type="CollisionShape2D" parent="." unique_id=1579249835]
 position = Vector2(0.5000002, -0.49999985)

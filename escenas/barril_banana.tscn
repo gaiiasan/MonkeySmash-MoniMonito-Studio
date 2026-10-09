@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dcsgaf8ekdc3r"]
+
+[ext_resource type="Script" uid="uid://dmg7rk7bxea7j" path="res://escenas/barril_banana.gd" id="1_1unah"]
+[ext_resource type="Texture2D" uid="uid://o06gb60b8e1a" path="res://TILES/explosion banana-Sheet.png" id="1_4bqhm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bqhm"]
+atlas = ExtResource("1_4bqhm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1unah"]
+atlas = ExtResource("1_4bqhm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy7a6"]
+atlas = ExtResource("1_4bqhm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jtnt"]
+atlas = ExtResource("1_4bqhm")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p27ot"]
+atlas = ExtResource("1_4bqhm")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqcn8"]
+atlas = ExtResource("1_4bqhm")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyq25"]
+atlas = ExtResource("1_4bqhm")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpt6w"]
+atlas = ExtResource("1_4bqhm")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4glv"]
+atlas = ExtResource("1_4bqhm")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4bqhm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1unah")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_sy7a6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7jtnt")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_p27ot")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_pqcn8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_uyq25")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_vpt6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4glv")
+}],
+"loop": 1,
+"name": &"barril_banana_epxlosion",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(57, 36)
+
+[node name="barril_banana" type="StaticBody2D" unique_id=902430059]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_1unah")
+
+[node name="sprite_barril_banana" type="AnimatedSprite2D" parent="." unique_id=5323739]
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"barril_banana_epxlosion"
+
+[node name="barril_hitbox" type="CollisionShape2D" parent="." unique_id=379856447]
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="area_barril" type="Area2D" parent="." unique_id=894596087 groups=["ataque_jorge"]]
+
+[node name="colision_area_barril" type="CollisionShape2D" parent="area_barril" unique_id=514240506]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.8307411, 0.32206985, 0.5854057, 0.41960785)
+
+[connection signal="animation_finished" from="sprite_barril_banana" to="." method="_on_sprite_barril_banana_animation_finished"]
+[connection signal="body_entered" from="area_barril" to="." method="_on_area_barril_body_entered"]
