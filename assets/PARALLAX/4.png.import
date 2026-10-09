@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxnvoosa7j5hx"
-path="res://.godot/imported/Little_Bits_Office_Floors.png-4099a01e6c2b0f7a72603e7040a3b439.ctex"
+uid="uid://dc0el744471hg"
+path="res://.godot/imported/4.png-73b0370f9d5b9e4508b4f6566bf53d46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Little_Bits_Office_Floors.png"
-dest_files=["res://.godot/imported/Little_Bits_Office_Floors.png-4099a01e6c2b0f7a72603e7040a3b439.ctex"]
+source_file="res://assets/PARALLAX/4.png"
+dest_files=["res://.godot/imported/4.png-73b0370f9d5b9e4508b4f6566bf53d46.ctex"]
 
 [params]
 

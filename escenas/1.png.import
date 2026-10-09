@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs3nmi53ho1jt"
-path="res://.godot/imported/Little_Bits_office_walls.png-650dc144275be9ab1ce5d67dd28d6ac8.ctex"
+uid="uid://1xghtmqujr0a"
+path="res://.godot/imported/1.png-14ca1ea929ee4e17fd26c1c1d8019b0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Little_Bits_office_walls.png"
-dest_files=["res://.godot/imported/Little_Bits_office_walls.png-650dc144275be9ab1ce5d67dd28d6ac8.ctex"]
+source_file="res://escenas/1.png"
+dest_files=["res://.godot/imported/1.png-14ca1ea929ee4e17fd26c1c1d8019b0e.ctex"]
 
 [params]
 

@@ -10,8 +10,7 @@ var EnemigoMirando = 1
 
 func _ready() -> void:
 	EnMovimiento = true
-	$AnimationPlayer.animation_finished.connect(_on_animation_finished)
-	$AnimationPlayer.play("enemigo_idle")
+	$SpriteEnemigo.play("enemigo_idle")
 
 
 func _physics_process(_delta: float) -> void:
@@ -19,15 +18,15 @@ func _physics_process(_delta: float) -> void:
 	if EnMovimiento == true:
 		move_and_collide(movimiento)
 		set_vector(get_node("../Player").global_position - global_position)
-		$AnimationPlayer.play("enemigo_walk")
+		$SpriteEnemigo.play("enemigo_walk")
 
 	var direccion = Player.global_position - global_position
 	if direccion.x > 0:
 		EnemigoMirando = 1
-		$EnemySprite.flip_h = false # pa q se giren
+		$SpriteEnemigo.flip_h = false # pa q se giren
 	if direccion.x < 0:
 		EnemigoMirando = -1
-		$EnemySprite.flip_h = true
+		$SpriteEnemigo.flip_h = true
 
 	$ProgressBar.value = vida
 	if $ProgressBar.value == 0: 
@@ -41,14 +40,17 @@ func set_vector(vector):
 
 func _on_area_2d_2_body_entered(_body: Node2D) -> void:
 	print("FUNCIONA")
-	$AnimationPlayer.play("enemigo_idle")
+	#$SpriteEnemigo.play("enemigo_idle")
 	#if body.name == "Player":
 	EnMovimiento = false
 	movimiento = Vector2.ZERO # Esto pone x:0 e y:0 de una
+	$SpriteEnemigo.play("enemigo_golpe")
+	await get_tree().create_timer(0.35).timeout
 	call_deferred("AtaqueEnemigo")
+	await get_tree().create_timer(0.50).timeout
+	$SpriteEnemigo.play("enemigo_idle")
 
 func AtaqueEnemigo():
-	$AnimationPlayer.play("enemigo_golpe")
 	var Puñetaso = PiñaEnemigo.instantiate() #crea la piña
 	get_parent().add_child(Puñetaso) #la pone como hijo del nodo 2d
 	Puñetaso.position.x = global_position.x + 45 * EnemigoMirando #crea la piña adelante del jugador
@@ -59,7 +61,3 @@ func AtaqueEnemigo():
 func _on_area_2d_2_body_exited(_body: Node2D) -> void:
 	EnMovimiento = true
 	pass # Replace with function body.
-
-func _on_animation_finished(anim_name: String) -> void:
-	if anim_name == "enemigo_golpe" :
-		$AnimationPlayer.play("enemigo_idle")
