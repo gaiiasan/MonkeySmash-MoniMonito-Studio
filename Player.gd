@@ -38,6 +38,7 @@ func _physics_process(_delta):
 	# CODIGO P Q FUNCIONEN LOS CORAZONCITOS
 	var porcentaje = float(vida) / $ProgressBar.max_value
 	$"../../UI_ingame/placeholder bananas contador/vida".size.x = porcentaje * 80
+	
 	if vida == 0:
 		$JorgeSprite.play("jorge_muerte")
 		PuedeMoverse = false
