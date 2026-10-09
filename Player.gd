@@ -76,10 +76,11 @@ func AtaqueLigero():
 	PuedeMoverse = false
 
 	var Puñetaso = PiñaLigera.instantiate() #crea la piña
+	await get_tree().create_timer(0.3).timeout #duracion de la piña
 	get_parent().add_child(Puñetaso) #la pone como hijo del nodo 2d
 	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda #crea la piña adelante del jugador
 	Puñetaso.position.y = global_position.y
-	await get_tree().create_timer(0.25).timeout #duracion de la piña
+	
 	await get_tree().create_timer(0.55).timeout
 	$JorgeSprite.play("jorge_idle")
 	PuedeMoverse = true #anti-spam
@@ -92,11 +93,12 @@ func AtaquePesado():
 	
 	PuedeAtacar = false #anti-spam
 	PuedeMoverse = false
+	await get_tree().create_timer(0.4).timeout #duracion de la piña
 	var Puñetaso = PiñaPesada.instantiate() #crea la piña
 	get_parent().add_child(Puñetaso) #la pone como hijo del nodo 2d
 	Puñetaso.position.x = global_position.x + 45 * PlayerMirandoIzquierda #crea la piña adelante del jugador
 	Puñetaso.position.y = global_position.y
-	await get_tree().create_timer(0.4).timeout #duracion de la piña
+	
 	await get_tree().create_timer(0.55).timeout
 	$JorgeSprite.play("jorge_idle")
 	PuedeMoverse = true #anti-spam

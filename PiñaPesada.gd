@@ -9,5 +9,11 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	body.vida -= daño
-	body.position.x += 40 * PlayerMirando
+	if body.name == "Barril_banana":
+		print("soy un abrril")
+		body.recibir_golpe()
+		return
+	else:
+		print("soy un enemigo")
+		body.vida -= daño
+		body.position.x += 40 * PlayerMirando

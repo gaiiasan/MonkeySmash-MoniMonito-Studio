@@ -1,30 +1,28 @@
 extends StaticBody2D
 
-@onready var barril_banana: AnimatedSprite2D = $sprite_barril_banana
-@onready var colision_barril_banana: CollisionShape2D = $barril_hitbox
-@onready var area_barril: Area2D = $area_barril
-
+var BananaEscena = preload("res://escenas/BananaPickUp.tscn")
 var destruido = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func recibir_golpe():
+	print("me golpean aaaaaaaaaaaaaaa")
+	destruido = true
+	$BarrilBanana.play("barril_banana_epxlosion")
+	await get_tree().create_timer(0.3).timeout
+	explotar.call_deferred()
+	
+func explotar():
+	var cantidad = randi_range(3, 6)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	for i in range(cantidad):
+		var banana = BananaEscena.instantiate()
+		get_tree().current_scene.add_child(banana)
+		banana.global_position = global_position
 
-func golpe_barril():
-		destruido = true
-		barril_banana.play("barril_banana_epxlosion")
-		
-func _on_sprite_barril_banana_animation_finished() -> void:
-	if barril_banana.animation == "barril_banana_exlosion":
-		queue_free()
+		var direccion = Vector2(
+			randf_range(-1.0, 1.0),
+			randf_range(-1.0, 1.0)
+		).normalized()
 
-func _on_area_barril_body_exited(body: Node2D):
-	if destruido:
-		return
-		
-	if area_barril.is_in_group("ataque_jorge"):
-		golpe_barril()
+		banana.global_position += direccion * randf_range(20.0, 80.0)
+
+	queue_free()

@@ -6,7 +6,7 @@
 size = Vector2(35, 63)
 
 [node name="Area2D" type="Area2D" unique_id=2117400558]
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_a2w3q")
 
 [node name="HitboxPiñaPesada" type="CollisionShape2D" parent="." unique_id=1117765585]
