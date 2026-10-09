@@ -12,7 +12,6 @@ radius = 18.110771
 
 [node name="BananaPickUp" type="Area2D" unique_id=1499009987]
 collision_layer = 64
-collision_mask = 9
 script = ExtResource("1_7g15u")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1200292697]
