@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cr8wa2dwmavmq"]
+
+[ext_resource type="Script" uid="uid://dhytphnk4q1d6" path="res://escenas/barril_cherry.gd" id="1_033fl"]
+[ext_resource type="Texture2D" uid="uid://dol67dex34ej3" path="res://assets/barril_cherry.tres" id="2_mwi61"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx6s3"]
+radius = 16.013884
+
+[node name="BarrilCherry" type="StaticBody2D" unique_id=1890214226]
+scale = Vector2(1.5, 1.5)
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_033fl")
+
+[node name="BarrilCherry2" type="Sprite2D" parent="." unique_id=1744935278]
+texture = ExtResource("2_mwi61")
+
+[node name="BarrilCherry" type="CollisionShape2D" parent="." unique_id=1445438266]
+shape = SubResource("CircleShape2D_lx6s3")
+debug_color = Color(0.8753195, 0.33672905, 0.20190868, 0.41960785)

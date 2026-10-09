@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cgusoqni5e42u" path="res://BOSS-FIGHT.tscn" id="10_doqx2"]
 [ext_resource type="PackedScene" uid="uid://dcsgaf8ekdc3r" path="res://escenas/barril_banana.tscn" id="10_i2vj7"]
 [ext_resource type="Texture2D" uid="uid://bm1exaj5behjg" path="res://assets/boss/bar_empty.tres" id="10_spgmn"]
+[ext_resource type="PackedScene" uid="uid://cr8wa2dwmavmq" path="res://escenas/barril_cherry.tscn" id="17_rmnfm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lx6s3"]
 texture = ExtResource("1_di5yp")
@@ -950,14 +951,11 @@ texture_under = ExtResource("9_4jgxa")
 texture_progress = ExtResource("10_spgmn")
 
 [node name="Barril_banana" parent="." unique_id=722478714 instance=ExtResource("10_i2vj7")]
-position = Vector2(290, 393)
-scale = Vector2(1.4799975, 1.4799975)
+position = Vector2(432, 429)
+scale = Vector2(1.5, 1.5)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1853143206]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=137360022]
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=623239908]
+[node name="BarrilCherry" parent="." unique_id=1890214226 instance=ExtResource("17_rmnfm")]
+position = Vector2(432, 307)
 
 [connection signal="body_entered" from="Node2D/Pelea1" to="Node2D" method="_on_pelea_1_body_entered"]
 [connection signal="body_entered" from="Node2D/ActivadorDelBoss/PeleaBoss" to="Node2D" method="_on_pelea_boss_body_entered"]
