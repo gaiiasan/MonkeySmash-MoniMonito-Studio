@@ -13,7 +13,6 @@ texture = ExtResource("3_6cq3m")
 
 [node name="MENU" type="Control" unique_id=1726383420]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,6 +50,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_57qmd")
 text = "JUGAR"
 
 [node name="opciones" type="Button" parent="." unique_id=1143832197]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,9 +80,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -157.7174
-offset_top = 4.0
+offset_top = -85.0
 offset_right = 151.03674
-offset_bottom = 79.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0169904, 1.0055734)
@@ -102,9 +102,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -158.0
-offset_top = 92.0
+offset_top = 3.0
 offset_right = 151.03198
-offset_bottom = 167.0
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0169904, 1.0055734)
